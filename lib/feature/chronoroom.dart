@@ -40,3 +40,22 @@ class _MyFormState extends State<MyForm> {
     _timeController.dispose();
     super.dispose();
   }
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime picked = (await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: Colors.green, // Header background color
+            // ignore: deprecated_member_use
+            accentColor: Colors.green, // Selected date color
+            colorScheme: const ColorScheme.light(primary: Colors.green),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child!,
+        );
+      },
+    ))!;
