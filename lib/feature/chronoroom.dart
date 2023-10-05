@@ -66,3 +66,13 @@ class _MyFormState extends State<MyForm> {
       });
     }
   }
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay picked = (await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    ))!;
+
+    setState(() {
+      _timeController.text = picked.format(context);
+    });
+  }
