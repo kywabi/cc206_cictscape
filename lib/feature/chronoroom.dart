@@ -76,3 +76,49 @@ class _MyFormState extends State<MyForm> {
       _timeController.text = picked.format(context);
     });
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('ChronoRoom'),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: InkWell(
+              onTap: () => _selectDate(context),
+              child: IgnorePointer(
+                child: TextField(
+                  controller: _dateController,
+                  readOnly: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Select Date',
+                    suffixIcon: Icon(Icons.calendar_today),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: InkWell(
+              onTap: () => _selectTime(context),
+              child: IgnorePointer(
+                child: TextField(
+                  controller: _timeController,
+                  readOnly: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Select Time',
+                    suffixIcon: Icon(Icons.access_time),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
