@@ -51,7 +51,7 @@ class _MyFormState extends State<MyForm> {
           data: ThemeData.light().copyWith(
             primaryColor: Colors.green, // Header background color
             // ignore: deprecated_member_use
-            accentColor: Colors.green, // Selected date color
+            hintColor: Colors.green, // Selected date color
             colorScheme: const ColorScheme.light(primary: Colors.green),
             buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
           ),
