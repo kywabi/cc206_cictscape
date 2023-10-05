@@ -15,3 +15,28 @@ class ChronoRoom extends StatelessWidget {
     );
   }
 }
+class MyForm extends StatefulWidget {
+  const MyForm({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _MyFormState createState() => _MyFormState();
+}
+
+class _MyFormState extends State<MyForm> {
+  late TextEditingController _dateController;
+  late TextEditingController _timeController;
+
+  @override
+  void initState() {
+    super.initState();
+    _dateController = TextEditingController();
+    _timeController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _dateController.dispose();
+    _timeController.dispose();
+    super.dispose();
+  }
