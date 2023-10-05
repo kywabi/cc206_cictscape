@@ -59,3 +59,10 @@ class _MyFormState extends State<MyForm> {
         );
       },
     ))!;
+
+    if (picked != DateTime.now()) {
+      setState(() {
+        _dateController.text = picked.toString().split(' ')[0]; // Display only the date
+      });
+    }
+  }
