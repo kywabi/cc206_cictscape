@@ -82,38 +82,59 @@ class _MyFormState extends State<MyForm> {
       appBar: AppBar(
         title: const Text('ChronoRoom'),
       ),
-      body: Column(
+      body: Stack(
         children: [
+               // Background Image
+          Image.network(
+            'https://scontent.fklo1-1.fna.fbcdn.net/v/t1.15752-9/363498033_253306103991358_2901472721579018923_n.png?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFLSjv8s83T4jZaqQZGHio-y9tEMTTAyc7L20QxNMDJzvuDKNaJy_oreHG_kcL83kPfeC5VFmo96iIRYX2xO6tV&_nc_ohc=EYvjvjz0aHAAX_uGjvl&_nc_ht=scontent.fklo1-1.fna&oh=03_AdTnl51yXAOslHrqJaQTttG5dIrAeceVOuXJRMfFRu-H4g&oe=655DF33E',
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: InkWell(
               onTap: () => _selectDate(context),
               child: IgnorePointer(
+                  child: Container(
+                        width: 280, // Adjust the width as needed
                 child: TextField(
                   controller: _dateController,
                   readOnly: true,
                   decoration: const InputDecoration(
-                    labelText: 'Select Date',
-                    suffixIcon: Icon(Icons.calendar_today),
+                      labelText: 'Select Date',
+                      labelStyle: TextStyle(color: Colors.white), // Set text color to white
+                      suffixIcon: Icon(Icons.calendar_today, color: Colors.white),
+           ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: InkWell(
-              onTap: () => _selectTime(context),
-              child: IgnorePointer(
-                child: TextField(
-                  controller: _timeController,
-                  readOnly: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Select Time',
-                    suffixIcon: Icon(Icons.access_time),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: InkWell(
+                    onTap: () => _selectTime(context),
+                    child: IgnorePointer(
+                      child: Container(
+                        width: 280, // Adjust the width as needed
+                        child: TextField(
+                          controller: _timeController,
+                          readOnly: true,
+                          decoration: InputDecoration(
+                            labelText: 'Select Time',
+                            labelStyle: TextStyle(color: Colors.white), // Set text color to white
+                            suffixIcon: Icon(Icons.access_time, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ),
         ],
@@ -121,4 +142,3 @@ class _MyFormState extends State<MyForm> {
     );
   }
 }
-
