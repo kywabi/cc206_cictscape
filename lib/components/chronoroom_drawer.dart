@@ -1,3 +1,4 @@
+import 'package:cc206_cictscape/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -82,15 +83,21 @@ class _MyFormState extends State<MyForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ChronoRoom'),
+        title: const Text('ChronoRoom',
+         style: TextStyle(color: Colors.white),),
+        backgroundColor: const Color(0xFF215049),
       ),
       body: Stack(
         children: [
-          // Background Image
-          Image.network(
-            'https://scontent.fklo1-1.fna.fbcdn.net/v/t1.15752-9/363498033_253306103991358_2901472721579018923_n.png?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFLSjv8s83T4jZaqQZGHio-y9tEMTTAyc7L20QxNMDJzvuDKNaJy_oreHG_kcL83kPfeC5VFmo96iIRYX2xO6tV&_nc_ohc=EYvjvjz0aHAAX_uGjvl&_nc_ht=scontent.fklo1-1.fna&oh=03_AdTnl51yXAOslHrqJaQTttG5dIrAeceVOuXJRMfFRu-H4g&oe=655DF33E',
-            width: double.infinity,
-            height: double.infinity,
+         Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                  'https://scontent.fklo1-1.fna.fbcdn.net/v/t1.15752-9/363498033_253306103991358_2901472721579018923_n.png?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFLSjv8s83T4jZaqQZGHio-y9tEMTTAyc7L20QxNMDJzvuDKNaJy_oreHG_kcL83kPfeC5VFmo96iIRYX2xO6tV&_nc_ohc=EYvjvjz0aHAAX_uGjvl&_nc_ht=scontent.fklo1-1.fna&oh=03_AdTnl51yXAOslHrqJaQTttG5dIrAeceVOuXJRMfFRu-H4g&oe=655DF33E',
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           Center(
             child: Column(
@@ -108,8 +115,8 @@ class _MyFormState extends State<MyForm> {
                           readOnly: true,
                           decoration: InputDecoration(
                             labelText: 'Select Date',
-                            labelStyle: TextStyle(color: Colors.white), // Set text color to white
-                            suffixIcon: Icon(Icons.calendar_today, color: Colors.white),
+                            labelStyle: const TextStyle(color: Colors.white), // Set text color to white
+                            suffixIcon: const Icon(Icons.calendar_today, color: Colors.white),
                           ),
                         ),
                       ),
@@ -128,8 +135,8 @@ class _MyFormState extends State<MyForm> {
                           readOnly: true,
                           decoration: InputDecoration(
                             labelText: 'Select Time',
-                            labelStyle: TextStyle(color: Colors.white), // Set text color to white
-                            suffixIcon: Icon(Icons.access_time, color: Colors.white),
+                            labelStyle: const TextStyle(color: Colors.white), // Set text color to white
+                            suffixIcon: const Icon(Icons.access_time, color: Colors.white),
                           ),
                         ),
                       ),
@@ -141,6 +148,60 @@ class _MyFormState extends State<MyForm> {
           ),
         ],
       ),
+      drawer: Drawer(
+  child: Container(
+    color: const Color(0xFF215049), // Set the background color of the drawer
+    child: ListView(
+      children: <Widget>[
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: const Color(0xFF215049),
+          ),
+          child: const Text(
+            '',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        _buildHoverableDrawerItem('Home', Icons.home, () {
+          Navigator.pop(context);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        }),
+        _buildHoverableDrawerItem('ChronoRoom', Icons.access_time, () {
+          Navigator.pop(context);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ChronoRoom()));
+        }),
+        
+      ],
+    ),
+  ),
+),
     );
   }
+
+ Widget _buildHoverableDrawerItem(String title, IconData icon, VoidCallback onTap) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          color: Colors.transparent,
+          child: ListTile(
+            title: Row(
+              children: [
+                Icon(icon, color: Colors.white),
+                const SizedBox(width: 16),
+                Text(title, style: TextStyle(color: Colors.white)),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    }
+  void _selectTab(int index) {
+    // Handle the selection of tabs
+  }
 }
+
