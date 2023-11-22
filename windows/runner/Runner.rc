@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "cc206_cictscape" "\0"
+            VALUE "FileDescription", "cictscape" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "cc206_cictscape" "\0"
+            VALUE "InternalName", "cictscape" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "cc206_cictscape.exe" "\0"
-            VALUE "ProductName", "cc206_cictscape" "\0"
+            VALUE "OriginalFilename", "cictscape.exe" "\0"
+            VALUE "ProductName", "cictscape" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

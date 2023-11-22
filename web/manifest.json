@@ -1,6 +1,6 @@
 {
-    "name": "cc206_cictscape",
-    "short_name": "cc206_cictscape",
+    "name": "cictscape",
+    "short_name": "cictscape",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
