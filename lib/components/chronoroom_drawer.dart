@@ -11,7 +11,7 @@ class ChronoRoom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false, // Remove the debug banner
+      debugShowCheckedModeBanner: false,
       home: MyForm(),
     );
   }
@@ -79,21 +79,35 @@ class _MyFormState extends State<MyForm> {
     });
   }
 
+  void _redirectToResultsPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultsPage(
+          chosenDate: _dateController.text,
+          chosenTime: _timeController.text,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ChronoRoom',
-         style: TextStyle(color: Colors.white),),
+        title: const Text(
+          'ChronoRoom',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: const Color(0xFF215049),
       ),
       body: Stack(
         children: [
-         Container(
+          Container(
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
-                  'https://scontent.xx.fbcdn.net/v/t1.15752-9/363498033_253306103991358_2901472721579018923_n.png?stp=dst-png_p160x160&_nc_cat=111&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFLSjv8s83T4jZaqQZGHio-y9tEMTTAyc7L20QxNMDJzvuDKNaJy_oreHG_kcL83kPfeC5VFmo96iIRYX2xO6tV&_nc_ohc=vcdoncZstv0AX9pRFew&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTljsX5P7RMCl3ofaTYFpSgO46uO4Q31c05D1qKJRiiDQ&oe=6594A97E',
+                  'https://res.cloudinary.com/generative-ai-demos/image/upload//c_pad,w_2959,ar_4:3,b_gen_fill/f_auto/q_auto/v1/ugc/fill/kohwtjoh7frcwsemsvy8',
                 ),
                 fit: BoxFit.cover,
               ),
@@ -109,13 +123,13 @@ class _MyFormState extends State<MyForm> {
                     onTap: () => _selectDate(context),
                     child: IgnorePointer(
                       child: Container(
-                        width: 280, // Adjust the width as needed
+                        width: 280,
                         child: TextField(
                           controller: _dateController,
                           readOnly: true,
                           decoration: InputDecoration(
                             labelText: 'Select Date',
-                            labelStyle: const TextStyle(color: Colors.white), // Set text color to white
+                            labelStyle: const TextStyle(color: Colors.white),
                             suffixIcon: const Icon(Icons.calendar_today, color: Colors.white),
                           ),
                         ),
@@ -129,13 +143,13 @@ class _MyFormState extends State<MyForm> {
                     onTap: () => _selectTime(context),
                     child: IgnorePointer(
                       child: Container(
-                        width: 280, // Adjust the width as needed
+                        width: 280,
                         child: TextField(
                           controller: _timeController,
                           readOnly: true,
                           decoration: InputDecoration(
                             labelText: 'Select Time',
-                            labelStyle: const TextStyle(color: Colors.white), // Set text color to white
+                            labelStyle: const TextStyle(color: Colors.white),
                             suffixIcon: const Icon(Icons.access_time, color: Colors.white),
                           ),
                         ),
@@ -143,68 +157,64 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-Padding(
-  padding: const EdgeInsets.all(16.0),
-  child: Container(
-    width: 100, // Adjust the width as needed
-    child: ElevatedButton(
-      onPressed: () {
-        // Handle button press
-      },
-      style: ElevatedButton.styleFrom(
-        primary: Colors.white, // Set the background color to white
-        onPrimary: Color(0xFF215049), // Set the text color to Color(0xFF215049)
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
-          side: BorderSide(color: Color(0xFFFAA001)), // Set the border color
-        ),
-      ),
-      child: Text(
-        'Find',
-        style: TextStyle(color: Color(0xFF215049)),
-      ),
-    ),
-  ),
-),
-
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    width: 100,
+                    child: ElevatedButton(
+                      onPressed: _redirectToResultsPage,
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Color(0xFF215049),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: Color(0xFFFAA001)),
+                        ),
+                      ),
+                      child: Text(
+                        'Find',
+                        style: TextStyle(color: Color(0xFF215049)),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ],
       ),
       drawer: Drawer(
-  child: Container(
-    color: const Color(0xFF215049), // Set the background color of the drawer
-    child: ListView(
-      children: <Widget>[
-        DrawerHeader(
-          decoration: BoxDecoration(
-            color: const Color(0xFF215049),
-          ),
-          child: const Text(
-            '',
-            style: TextStyle(
-              color: Colors.white,
-            ),
+        child: Container(
+          color: const Color(0xFF215049),
+          child: ListView(
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: const Color(0xFF215049),
+                ),
+                child: const Text(
+                  '',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              _buildHoverableDrawerItem('Home', Icons.home, () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+              }),
+              _buildHoverableDrawerItem('ChronoRoom', Icons.access_time, () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChronoRoom()));
+              }),
+            ],
           ),
         ),
-        _buildHoverableDrawerItem('Home', Icons.home, () {
-          Navigator.pop(context);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-        }),
-        _buildHoverableDrawerItem('ChronoRoom', Icons.access_time, () {
-          Navigator.pop(context);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ChronoRoom()));
-        }),
-        
-      ],
-    ),
-  ),
-),
+      ),
     );
   }
 
- Widget _buildHoverableDrawerItem(String title, IconData icon, VoidCallback onTap) {
+  Widget _buildHoverableDrawerItem(String title, IconData icon, VoidCallback onTap) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: InkWell(
@@ -223,9 +233,146 @@ Padding(
         ),
       ),
     );
-    }
+  }
+
   void _selectTab(int index) {
     // Handle the selection of tabs
   }
 }
 
+
+class ResultsPage extends StatelessWidget {
+  final String chosenDate;
+  final String chosenTime;
+
+  ResultsPage({required this.chosenDate, required this.chosenTime});
+
+  // Sample room data (replace it with your actual data)
+  final List<Room> rooms = [
+    Room('Room 1', 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.6435-9/53930136_776019412782766_9122340675042410496_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=300f58&_nc_eui2=AeHsL6qAjdqcy8eH_YKf9SExOjqihNER30o6OqKE0RHfSm5Wb7jyoPPZA_b_NbabtMlvT_yaiEbcRKHYDRLFToDF&_nc_ohc=rndTAwGf2TwAX_j_j4G&_nc_ht=scontent.fmnl4-6.fna&oh=00_AfASQELxV1idrMXcYkAUAAqlyj-EfO_TL6PhvuTU5wH1_g&oe=65851D25', '10:00 AM','1:00 PM'),
+    Room('Room 2', 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.6435-9/53930136_776019412782766_9122340675042410496_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=300f58&_nc_eui2=AeHsL6qAjdqcy8eH_YKf9SExOjqihNER30o6OqKE0RHfSm5Wb7jyoPPZA_b_NbabtMlvT_yaiEbcRKHYDRLFToDF&_nc_ohc=rndTAwGf2TwAX_j_j4G&_nc_ht=scontent.fmnl4-6.fna&oh=00_AfASQELxV1idrMXcYkAUAAqlyj-EfO_TL6PhvuTU5wH1_g&oe=65851D25', '11:00 AM','12:30 PM'),
+    Room('Room 3', 'https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.6435-9/53930136_776019412782766_9122340675042410496_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=300f58&_nc_eui2=AeHsL6qAjdqcy8eH_YKf9SExOjqihNER30o6OqKE0RHfSm5Wb7jyoPPZA_b_NbabtMlvT_yaiEbcRKHYDRLFToDF&_nc_ohc=rndTAwGf2TwAX_j_j4G&_nc_ht=scontent.fmnl4-6.fna&oh=00_AfASQELxV1idrMXcYkAUAAqlyj-EfO_TL6PhvuTU5wH1_g&oe=65851D25', '2:00 PM','3:30 PM'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF215049),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'Results',
+          style: TextStyle(color: Colors.white),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: Text(
+              '$chosenDate $chosenTime',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              'https://res.cloudinary.com/generative-ai-demos/image/upload//c_pad,w_2959,ar_4:3,b_gen_fill/f_auto/q_auto/v1/ugc/fill/kohwtjoh7frcwsemsvy8',
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: rooms.map((room) {
+              return Container(
+                margin: const EdgeInsets.all(16.0),
+                width: 350,
+                height: 150,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 7,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Image.network(
+                          room.imageUrl,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          color: Colors.black.withOpacity(0.7),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+  'Time: ${room.startTime} - ${room.endTime}',
+  style: TextStyle(color: Colors.white),
+),
+
+                              Icon(
+                                Icons.check_circle,
+                                color: Colors.green,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          color: Colors.black.withOpacity(0.7),
+                          child: Text(
+                            room.name,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Room {
+  final String name;
+  final String imageUrl;
+  final String startTime;
+  final String endTime;
+
+  Room(this.name, this.imageUrl, this.startTime, this.endTime);
+}
