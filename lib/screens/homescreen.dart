@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:cictscape/components/chronoroom_drawer.dart';
+import 'package:cc206_cictscape/components/chronoroom_drawer.dart';
 
 void main() {
   runApp(const MainApp());

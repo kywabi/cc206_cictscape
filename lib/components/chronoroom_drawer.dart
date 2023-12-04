@@ -143,6 +143,30 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
+Padding(
+  padding: const EdgeInsets.all(16.0),
+  child: Container(
+    width: 100, // Adjust the width as needed
+    child: ElevatedButton(
+      onPressed: () {
+        // Handle button press
+      },
+      style: ElevatedButton.styleFrom(
+        primary: Colors.white, // Set the background color to white
+        onPrimary: Color(0xFF215049), // Set the text color to Color(0xFF215049)
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
+          side: BorderSide(color: Color(0xFFFAA001)), // Set the border color
+        ),
+      ),
+      child: Text(
+        'Find',
+        style: TextStyle(color: Color(0xFF215049)),
+      ),
+    ),
+  ),
+),
+
               ],
             ),
           ),
