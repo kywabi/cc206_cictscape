@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:cc206_cictscape/components/chronoroom_drawer.dart';
-import 'package:cc206_cictscape/screens/welcomescreen.dart';
+import 'package:cc206_cictscape/screens/loginscreen.dart';
 import 'package:cc206_cictscape/components/calebot_drawer.dart';
 
 
@@ -163,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           const SizedBox(height: 8), // Adjust the spacing as needed
 
-              Container(
+        Container(
         height: 350,
         width: 400,
         decoration: BoxDecoration(
@@ -191,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         ],
       ),
-          drawer: Drawer(
+        drawer: Drawer(
         child: Container(
           color: const Color(0xFF215049),
           child: ListView(
@@ -210,19 +210,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               _buildHoverableDrawerItem('Home', Icons.home, () {
                 Navigator.pop(context);
-                _selectTab(0); // Select the first tab
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+
               }),
               _buildHoverableDrawerItem('ChronoRoom', Icons.access_time, () {
                 Navigator.pop(context);
-                _selectTab(1); // Select the second tab
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChronoRoom()));
               }),
               _buildHoverableDrawerItem('CaleBot', Icons.chat, () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => CaleBotPage()));
+                
               }),
               _buildHoverableDrawerItem('Logout', Icons.exit_to_app, () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
               }),
             ],
           ),
