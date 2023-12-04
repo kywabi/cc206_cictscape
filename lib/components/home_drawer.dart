@@ -224,7 +224,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }),
               _buildHoverableDrawerItem('Logout', Icons.exit_to_app, () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
               }),
             ],
           ),
