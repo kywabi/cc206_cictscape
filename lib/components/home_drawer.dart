@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
-                  'https://scontent.xx.fbcdn.net/v/t1.15752-9/363498033_253306103991358_2901472721579018923_n.png?stp=dst-png_p160x160&_nc_cat=111&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFLSjv8s83T4jZaqQZGHio-y9tEMTTAyc7L20QxNMDJzvuDKNaJy_oreHG_kcL83kPfeC5VFmo96iIRYX2xO6tV&_nc_ohc=vcdoncZstv0AX9pRFew&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTljsX5P7RMCl3ofaTYFpSgO46uO4Q31c05D1qKJRiiDQ&oe=6594A97E',
+                  'https://scontent.fcgy2-1.fna.fbcdn.net/v/t1.15752-9/403406831_320328217596264_377399936506552992_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeH89B2y14xoWco2q-gNCkrxSuwEKjsxX3hK7AQqOzFfeIU4VecnysFapjHkM8-lt1vgeh8LA_EN6yVXZND-A3OA&_nc_ohc=ovKvgYVJ8k8AX_vh5zb&_nc_ht=scontent.fcgy2-1.fna&oh=03_AdRE3Pk_qSIOjaAqWkiYAUFdnT_nBjqCLobMxeus-GekqA&oe=65956F61',
                 ),
                 fit: BoxFit.cover,
               ),
@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Center(
             child: Container(
-              width: 400,
+              width: 340,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -71,13 +71,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Text(
                       'Good Afternoon, Noriel!',
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.normal,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 20),
                   Row(
             children: [
               Expanded(
@@ -94,17 +95,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Time',
+                        'TIME',
                         style: TextStyle(
                           fontSize: 12,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: 15),
                       Text(
                         _getCurrentTime(),
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                           color: const Color(0xFF215049),
                         ),
@@ -114,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-                      const SizedBox(width: 15),
+                      const SizedBox(width: 1),
                       Expanded(
                         child: Container(
                           height: 100,
@@ -129,17 +130,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text(
-                                'Available Rooms',
+                                'AVAILABLE ROOMS',
                                 style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w900,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              const SizedBox(height: 4),
+                              const SizedBox(height: 15),
                               const Text(
                                 '3',
                                 style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 30,
                                   fontWeight: FontWeight.bold,
                                   color: const Color(0xFF215049),
                                 ),
@@ -151,22 +152,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 30), // Adjust the spacing as needed
+                  const SizedBox(height: 70), // Adjust the spacing as needed
                   const Text(
-                    'Rooms',
+                    'Available Room',
                     style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 8), // Adjust the spacing as needed
+                  const SizedBox(height: 20), // Adjust the spacing as needed
 
                   Container(
                     height: 300,
                     width: 400,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ClipRRect(
