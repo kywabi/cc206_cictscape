@@ -53,9 +53,9 @@ class _MyFormState extends State<MyForm> {
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(
-            primaryColor: Colors.green,
-            hintColor: Colors.green,
-            colorScheme: const ColorScheme.light(primary: Colors.green),
+            primaryColor: Color(0xFFFAA001),
+            hintColor: Color(0xFFFAA001),
+            colorScheme: const ColorScheme.light(primary: Color(0xFFFAA001)),
             buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
           ),
           child: child!,
@@ -176,7 +176,10 @@ class _MyFormState extends State<MyForm> {
                       ),
                       child: Text(
                         'Find',
-                        style: TextStyle(color: Color(0xFF215049)),
+                        style: TextStyle(
+                          color: Color(0xFF215049),
+                           fontSize: 16,
+),
                       ),
                     ),
                   ),
@@ -354,7 +357,7 @@ class ResultsPage extends StatelessWidget {
 
                               Icon(
                                 Icons.check_circle,
-                                color: Colors.green,
+                                color: Color(0xFFFAA001),
                               ),
                             ],
                           ),
