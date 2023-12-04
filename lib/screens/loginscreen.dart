@@ -27,12 +27,13 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         fit: StackFit.expand,
         children: [
           // Background Image
           Image.network(
-            'https://scontent.xx.fbcdn.net/v/t1.15752-9/363498033_253306103991358_2901472721579018923_n.png?stp=dst-png_p160x160&_nc_cat=111&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFLSjv8s83T4jZaqQZGHio-y9tEMTTAyc7L20QxNMDJzvuDKNaJy_oreHG_kcL83kPfeC5VFmo96iIRYX2xO6tV&_nc_ohc=vcdoncZstv0AX9pRFew&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTljsX5P7RMCl3ofaTYFpSgO46uO4Q31c05D1qKJRiiDQ&oe=6594A97E',
+            'https://scontent.fcgy2-1.fna.fbcdn.net/v/t1.15752-9/403406831_320328217596264_377399936506552992_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeH89B2y14xoWco2q-gNCkrxSuwEKjsxX3hK7AQqOzFfeIU4VecnysFapjHkM8-lt1vgeh8LA_EN6yVXZND-A3OA&_nc_ohc=ovKvgYVJ8k8AX_vh5zb&_nc_ht=scontent.fcgy2-1.fna&oh=03_AdRE3Pk_qSIOjaAqWkiYAUFdnT_nBjqCLobMxeus-GekqA&oe=65956F61',
             fit: BoxFit.cover,
           ),
           // Welcome Text
@@ -45,16 +46,18 @@ class LoginPage extends StatelessWidget {
                 text: 'Let\'s Get\n',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 31,
                   fontWeight: FontWeight.bold,
+                  letterSpacing: 2,
                 ),
                 children: [
                   TextSpan(
                     text: 'Started!',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 24,
+                      fontSize: 31,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 2,
                     ),
                   ),
                 ],
@@ -67,11 +70,12 @@ class LoginPage extends StatelessWidget {
         top: 300,
         left: 50,
         right: 50,
+        height: 50,
         child: TextFormField(
           style: TextStyle(color: Color(0xFF215049)), // Set text color
           decoration: InputDecoration(
-            labelText: 'Email',
-            labelStyle: TextStyle(color: Color(0xFF215049)),
+            hintText: 'Email',
+            hintStyle: TextStyle(color: Color.fromARGB(255, 158, 158, 158)),
             prefixIcon: Icon(
               Icons.email,
               color: Color(0xFF215049), // Set icon color
@@ -83,7 +87,7 @@ class LoginPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(15.0), // Set border radius
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFFFAA001)),
+              borderSide: BorderSide(color: Color(0xFF215049)),
               borderRadius: BorderRadius.circular(15.0), // Set border radius
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 15.0), // Set vertical padding
@@ -96,12 +100,13 @@ class LoginPage extends StatelessWidget {
         top: 380,
         left: 50,
         right: 50,
+        height: 50,
         child: TextFormField(
           obscureText: true,
           style: TextStyle(color: Color(0xFF215049)), // Set text color
           decoration: InputDecoration(
-            labelText: 'Password',
-            labelStyle: TextStyle(color: Color(0xFF215049)),
+            hintText: 'Password',
+            hintStyle: TextStyle(color: Color.fromARGB(255, 158, 158, 158)),
             prefixIcon: Icon(
               Icons.lock,
               color: Color(0xFF215049), // Set icon color
@@ -113,7 +118,7 @@ class LoginPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(15.0), // Set border radius
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFFFAA001)),
+              borderSide: BorderSide(color: Color(0xFF215049)),
               borderRadius: BorderRadius.circular(15.0), // Set border radius
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 15.0), // Set vertical padding
@@ -123,9 +128,9 @@ class LoginPage extends StatelessWidget {
                 
 // Login Button
 Positioned(
-  bottom: 70,
-  left: 150,
-  right: 150,
+  bottom: 40,
+  left: 125,
+  right: 115,
   child: Container(
     height: 50,
     child: ElevatedButton(
@@ -142,13 +147,13 @@ Positioned(
         onPrimary: Color(0xFF215049),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.0),
-          side: BorderSide(color: Color(0xFFFAA001)),
+          side: BorderSide(color: Color(0xFF215049)),
         ),
       ),
       child: Text(
         'Login',
         style: TextStyle(
-          color: Color(0xFFFAA001),
+          color: Color(0xFF215049),
           fontSize: 18,
           fontWeight: FontWeight.bold,
         ),

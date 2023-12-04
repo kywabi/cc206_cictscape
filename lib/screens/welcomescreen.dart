@@ -32,7 +32,7 @@ class WelcomePage extends StatelessWidget {
         children: [
           // Background Image
           Image.network(
-            'https://scontent.fmnl9-4.fna.fbcdn.net/v/t1.15752-9/405846819_1079967129684805_431433535647908935_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeH-ky2CR4sTt2KOcvbpcHaTsss09ltyHpKyyzT2W3IeknpuWCxuKgVpnI7Ewe8-mGjzgVdsgud8CCHi8Tj1h4LS&_nc_ohc=4OLR7N62Up8AX_-2JgX&_nc_ht=scontent.fmnl9-4.fna&oh=03_AdRCbWoHe-yXeV7KZ0hjvHDBxufRxE7C6HOIZ0EN4pxkQg&oe=65951622',
+            'https://scontent.fcgy2-2.fna.fbcdn.net/v/t1.15752-9/386873400_694100779485092_5554559377775340637_n.png?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFTImpDKZl9z3Q6JD22p2AkEXZSrwrduTURdlKvCt25NXu2uw7dHnr9SEU04GVm5nBU_xN67MqM4pM72crSSN6C&_nc_ohc=YKTbYdQgyPgAX-dQ5aq&_nc_ht=scontent.fcgy2-2.fna&oh=03_AdSBcQI2gvYW3V3JMzm7XnWJtjSO98yrMI_6v-LnsdfpPQ&oe=65957625',
             fit: BoxFit.cover,
           ),
           // Welcome Text
@@ -45,16 +45,18 @@ class WelcomePage extends StatelessWidget {
                 text: 'Reserving you\n',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 31,
                   fontWeight: FontWeight.bold,
+                  letterSpacing: 2,
                 ),
                 children: [
                   TextSpan(
                     text: 'with Ease!',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 24,
+                      fontSize: 31,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 2,
                     ),
                   ),
                 ],
@@ -64,11 +66,11 @@ class WelcomePage extends StatelessWidget {
           ),
           // Let's Go Button
           Positioned(
-            bottom: 70,
-            left: 150,
-            right: 150,
+            bottom: 40,
+            left: 125,
+            right: 115,
             child: Container(
-              height: 50, // Set the width here
+              height: 40, // Set the width here
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/loginPage');
@@ -78,15 +80,16 @@ class WelcomePage extends StatelessWidget {
                   onPrimary: Color(0xFF215049),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25.0),
-                    side: BorderSide(color: Color(0xFFFAA001)),
+                    side: BorderSide(color: Color(0xFF215049)),
                   ),
                 ),
                 child: Text(
-                  'Let\'s Go',
+                  'Let\'s Go!',
                   style: TextStyle(
-                    color: Color(0xFFFAA001),
-                    fontSize: 18,
+                    color: Color(0xFF215049),
+                    fontSize: 19,
                     fontWeight: FontWeight.bold,
+                    letterSpacing: 2,
                   ),
                 ),
               ),
