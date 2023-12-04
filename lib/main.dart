@@ -1,3 +1,4 @@
+import 'package:cc206_cictscape/screens/welcomescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:cc206_cictscape/screens/homescreen.dart';
 
@@ -16,9 +17,11 @@ class MainApp extends StatelessWidget {
       title: 'ChronoRoom App',
       home: const HomeScreen(),
       routes: {
+        '/welcomeScreen': (BuildContext ctx) => WelcomePage(),
         '/homeScreen': (BuildContext ctx) => HomeScreen(),
+
       },
-      initialRoute: '/homeScreen',
+      initialRoute: '/welcomeScreen',
     );
   }
 }

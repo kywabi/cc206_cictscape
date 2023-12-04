@@ -331,9 +331,9 @@ class ResultsPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-  'Time: ${room.startTime} - ${room.endTime}',
-  style: TextStyle(color: Colors.white),
-),
+                                'Time: ${room.startTime} - ${room.endTime}',
+                                style: TextStyle(color: Colors.white),
+                              ),
 
                               Icon(
                                 Icons.check_circle,
