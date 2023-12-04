@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cc206_cictscape/screens/homescreen.dart';
+import 'package:cc206_cictscape/screens/loginscreen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
       title: 'ChronoRoom App',
       home: const WelcomePage(),
       routes: {
-        '/homeScreen': (BuildContext ctx) => HomeScreen(),
+        '/loginPage': (BuildContext ctx) => LoginPage(),
       },
       debugShowCheckedModeBanner: false,
     );
@@ -71,7 +71,7 @@ class WelcomePage extends StatelessWidget {
               height: 50, // Set the width here
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/homeScreen');
+                  Navigator.pushReplacementNamed(context, '/loginPage');
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
